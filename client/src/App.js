@@ -1,12 +1,24 @@
 import React from 'react';
-import { Header, Footer } from './components/layouts';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Layout from './components/layouts/index';
+import './App.css';
+import Dashboard from './components/pages/dashboard';
+import Drivers from './components/pages/drivers';
+import Trips from './components/pages/trips';
 
 function App() {
   return (
-    <React-Fragment>
-      <Header />
-      <Footer />
-    </React-Fragment>
+    <BrowserRouter>
+      <React-Fragment>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/drivers" exact component={Drivers} />
+            <Route path="/trips" exact component={Trips} />
+          </Switch>
+        </Layout>
+      </React-Fragment>
+    </BrowserRouter>
   );
 }
 
